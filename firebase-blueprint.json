@@ -1,0 +1,63 @@
+{
+  "projectInfo": {
+    "name": "LocalLift AI",
+    "description": "AI Marketing App for local businesses"
+  },
+  "collections": [
+    {
+      "name": "users",
+      "description": "Stores user profiles and business settings",
+      "documentId": "uid",
+      "fields": [
+        { "name": "uid", "type": "string", "description": "Firebase Auth UID" },
+        { "name": "email", "type": "string" },
+        { "name": "displayName", "type": "string" },
+        { "name": "businessName", "type": "string" },
+        { "name": "businessLocation", "type": "string" },
+        { "name": "createdAt", "type": "timestamp" }
+      ]
+    },
+    {
+      "name": "campaigns",
+      "description": "Stores AI generated campaign plans",
+      "documentId": "auto-generated",
+      "fields": [
+        { "name": "userId", "type": "string", "description": "Reference to users collection" },
+        { "name": "title", "type": "string" },
+        { "name": "summary", "type": "string" },
+        { "name": "channels", "type": "array" },
+        { "name": "samplePost", "type": "string" },
+        { "name": "createdAt", "type": "timestamp" }
+      ]
+    },
+    {
+      "name": "content",
+      "description": "Stores AI generated multi-platform content",
+      "documentId": "auto-generated",
+      "fields": [
+        { "name": "userId", "type": "string" },
+        { "name": "goal", "type": "string" },
+        { "name": "tone", "type": "string" },
+        { "name": "language", "type": "string" },
+        { "name": "instagram", "type": "string" },
+        { "name": "reel", "type": "string" },
+        { "name": "whatsapp", "type": "string" },
+        { "name": "google", "type": "string" },
+        { "name": "createdAt", "type": "timestamp" }
+      ]
+    },
+    {
+      "name": "creatives",
+      "description": "Stores AI generated images",
+      "documentId": "auto-generated",
+      "fields": [
+        { "name": "userId", "type": "string" },
+        { "name": "prompt", "type": "string" },
+        { "name": "format", "type": "string" },
+        { "name": "style", "type": "string" },
+        { "name": "imageUrl", "type": "string" },
+        { "name": "createdAt", "type": "timestamp" }
+      ]
+    }
+  ]
+}

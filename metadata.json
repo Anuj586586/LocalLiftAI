@@ -1,0 +1,8 @@
+{
+  "name": "LocalLift AI",
+  "description": "AI Marketing Team for Local Businesses",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
