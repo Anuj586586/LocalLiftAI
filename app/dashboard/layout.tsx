@@ -4,7 +4,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { TopNav } from '@/components/TopNav';
 import { useAuth } from '@/lib/auth-context';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Loader2 } from 'lucide-react';
 
 export default function DashboardLayout({
@@ -14,6 +14,7 @@ export default function DashboardLayout({
 }) {
   const { user, loading } = useAuth();
   const router = useRouter();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -31,10 +32,13 @@ export default function DashboardLayout({
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <Sidebar />
-      <div className="pl-64 flex flex-col min-h-screen">
-        <TopNav />
-        <main className="flex-1 p-8">
+      <Sidebar 
+        isOpen={isMobileMenuOpen} 
+        onClose={() => setIsMobileMenuOpen(false)} 
+      />
+      <div className="md:pl-64 flex flex-col min-h-screen">
+        <TopNav onOpenMenu={() => setIsMobileMenuOpen(true)} />
+        <main className="flex-1 p-4 md:p-8">
           {children}
         </main>
       </div>

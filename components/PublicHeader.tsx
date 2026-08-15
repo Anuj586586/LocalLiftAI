@@ -3,7 +3,7 @@ import { User } from 'lucide-react';
 
 export function PublicHeader() {
   return (
-    <header className="h-20 border-b border-gray-100 bg-white flex items-center justify-between px-8 lg:px-24">
+    <header className="h-20 border-b border-gray-100 bg-white flex items-center justify-between px-4 sm:px-8 lg:px-24">
       <Link href="/" className="flex items-center gap-2">
         <div className="w-8 h-8 bg-[#3C2EE5] rounded-md grid place-items-center">
           <div className="w-4 h-4 bg-white rounded-sm" />

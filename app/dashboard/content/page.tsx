@@ -110,15 +110,15 @@ Special Weekend Offer: Dikhao yeh post aur pao 15% off on your total bill! Valid
 ⏰ 10 AM to 11 PM`;
 
   return (
-    <div className="max-w-6xl mx-auto flex flex-col h-[calc(100vh-8rem)]">
+    <div className="max-w-6xl mx-auto flex flex-col h-auto md:h-[calc(100vh-8rem)]">
       <div className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Content Studio</h1>
         <p className="text-gray-500 text-lg">Craft hyper-localized, brand-aligned messaging for any platform in seconds.</p>
       </div>
 
-      <div className="flex gap-8 flex-1 min-h-0">
+      <div className="flex flex-col lg:flex-row gap-8 flex-1 min-h-0 pb-8 md:pb-0">
         {/* Left Panel: Parameters */}
-        <div className="w-[400px] flex-shrink-0 flex flex-col">
+        <div className="w-full lg:w-[400px] flex-shrink-0 flex flex-col">
           <div className="flex items-center gap-3 mb-6">
             <Settings2 className="w-6 h-6 text-[#3C2EE5]" />
             <h2 className="text-xl font-bold text-gray-900">Campaign Parameters</h2>
@@ -240,7 +240,7 @@ Special Weekend Offer: Dikhao yeh post aur pao 15% off on your total bill! Valid
         </div>
 
         {/* Right Panel: Output */}
-        <div className="flex-1 bg-white rounded-2xl border shadow-sm flex flex-col overflow-hidden relative">
+        <div className="flex-1 bg-white rounded-2xl border shadow-sm flex flex-col overflow-hidden relative min-h-[500px] lg:min-h-0">
           {/* Tabs */}
           <div className="flex items-center border-b px-2 overflow-x-auto">
             {(outputs ? outputs.map(o => o.platform) : targetPlatforms).map((tabId, index) => (
