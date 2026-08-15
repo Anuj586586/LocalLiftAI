@@ -1,8 +1,12 @@
 import { X, Check, Zap } from 'lucide-react';
 import { useState } from 'react';
+import { useLocalizedPrice } from '@/hooks/useLocalizedPrice';
 
 export function PricingModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   const [isProcessing, setIsProcessing] = useState<string | null>(null);
+  
+  const { priceString: starterPrice, isLoading: isLoadingStarter } = useLocalizedPrice(19);
+  const { priceString: proPrice, isLoading: isLoadingPro } = useLocalizedPrice(49);
 
   if (!isOpen) return null;
 
@@ -50,7 +54,7 @@ export function PricingModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
           <div className="bg-white rounded-xl p-6 border shadow-sm">
             <h3 className="text-lg font-bold text-gray-900">Starter</h3>
             <div className="mt-4 flex items-baseline text-4xl font-extrabold text-gray-900">
-              $19<span className="ml-1 text-xl font-medium text-gray-500">/mo</span>
+              {isLoadingStarter ? <span className="animate-pulse bg-gray-200 h-10 w-24 rounded"></span> : starterPrice}<span className="ml-1 text-xl font-medium text-gray-500">/mo</span>
             </div>
             <p className="mt-4 text-sm text-gray-500">Perfect for small businesses getting started with AI.</p>
             <ul className="mt-6 space-y-3">
@@ -79,7 +83,7 @@ export function PricingModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
             </div>
             <h3 className="text-lg font-bold text-white">Pro Business</h3>
             <div className="mt-4 flex items-baseline text-4xl font-extrabold text-white">
-              $49<span className="ml-1 text-xl font-medium text-indigo-200">/mo</span>
+              {isLoadingPro ? <span className="animate-pulse bg-indigo-500 h-10 w-24 rounded"></span> : proPrice}<span className="ml-1 text-xl font-medium text-indigo-200">/mo</span>
             </div>
             <p className="mt-4 text-sm text-indigo-100">Everything you need to dominate your local market.</p>
             <ul className="mt-6 space-y-3">

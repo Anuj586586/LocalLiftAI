@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { CreditCard, CheckCircle2, Zap } from 'lucide-react';
+import { useLocalizedPrice } from '@/hooks/useLocalizedPrice';
 
 export default function BillingPage() {
   const [isProcessing, setIsProcessing] = useState(false);
+  const { priceString, isLoading } = useLocalizedPrice(29);
 
   const handleSubscribe = async () => {
     setIsProcessing(true);
@@ -65,7 +67,10 @@ export default function BillingPage() {
         </div>
         
         <div className="w-full md:w-auto bg-gray-50 p-6 rounded-xl border border-gray-100 flex flex-col items-center min-w-[280px]">
-          <div className="text-4xl font-bold text-gray-900 mb-1">$29<span className="text-lg text-gray-500 font-normal">/month</span></div>
+          <div className="text-4xl font-bold text-gray-900 mb-1">
+            {isLoading ? <span className="animate-pulse bg-gray-200 h-10 w-24 rounded inline-block"></span> : priceString}
+            <span className="text-lg text-gray-500 font-normal">/month</span>
+          </div>
           <p className="text-sm text-gray-500 mb-6">Cancel anytime</p>
           
           <button
